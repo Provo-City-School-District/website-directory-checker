@@ -14,3 +14,8 @@ $siteUser = 2nd database username<br>
 $sitePass = 2nd database password<br>
 $siteLoc = 2nd database location/ip address<br>
 $siteDB = 2nd database name<br>
+
+## PHP Requirements
+built and tested on 7.4-fpm
+
+requires fopen module
