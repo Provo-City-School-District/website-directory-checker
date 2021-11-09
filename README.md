@@ -1,5 +1,6 @@
 # Active User Directory Checker
 *Modified 11/08/2021*
+
 Checks directory emails against another database to see that all emails are active.
 
 you'll need to include your database credentials in a database file. I named mine ```db.php```
@@ -17,6 +18,6 @@ $siteLoc = 2nd database location/ip address<br>
 $siteDB = 2nd database name<br>
 
 ## PHP Requirements
-built and tested on 7.4-fpm
+built and tested on 7.4
 
 requires fopen module
