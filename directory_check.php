@@ -31,7 +31,7 @@ $active_user_query = mysqli_query($vaultdb, $active_users_sql);
 $active_users_results = mysqli_fetch_all($active_user_query);
 //print_r($active_users_results);
 //connect to website database
-$site_db = mysqli_connect($siteLoc, $siteUser, $sitePass, siteDB);
+$site_db = mysqli_connect($siteLoc, $siteUser, $sitePass, $siteDB);
 //if connection fails
 if (!$site_db) {
     die('Could not connect: ' . mysql_error());
@@ -52,7 +52,6 @@ foreach($posts_ID_directory_results as $person){
     $site_directory_query = mysqli_query($site_db, $site_directory_sql);
     $site_directory_results = mysqli_fetch_all($site_directory_query);
     //print_r($site_directory_results);
-
 
     //check if emails from database are in the vault directory as active
     foreach ($site_directory_results as $user_email) {
