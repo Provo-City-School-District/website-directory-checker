@@ -1,4 +1,5 @@
 # Active User Directory Checker
+*Modified 11/08/2021*
 Checks directory emails against another database to see that all emails are active.
 
 you'll need to include your database credentials in a database file. I named mine ```db.php```
