@@ -44,7 +44,7 @@ $posts_ID_directory_query = mysqli_query($site_db, $posts_ID_directory_sql);
 $posts_ID_directory_results = mysqli_fetch_all($posts_ID_directory_query);
 //print_r($posts_ID_directory_results);
 
-
+$email_to_ignore = array('camp@provo.edu', 'dixonattendance@provo.edu', 'thsattendance@provo.edu');
 foreach($posts_ID_directory_results as $person){
 
     //pulls all emails from the directory for publish posts in the directory post type.
@@ -61,11 +61,7 @@ foreach($posts_ID_directory_results as $person){
         //echo 'current value is '.$user_email.'</br>';
         if(in_multiarray($user_email,$active_users_results)) {
             //it is in the database so do nothing
-        } elseif($user_email == 'camp@provo.edu'){
-            //ignore this email
-        } elseif($user_email == 'dixonattendance@provo.edu'){
-            //ignore this email
-        } elseif($user_email == 'thsattendance@provo.edu'){
+        } elseif(in_array($user_email, $email_to_ignore)){
             //ignore this email
         } else {
             echo $user_email." is not in the Vault as active.\n";
