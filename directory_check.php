@@ -2,6 +2,7 @@
 //include a file with database credentials
 include('db.php');
 //to use in_array in a multidimensional array
+    /* This Function was originally found on https://www.php.net/manual/en/function.in-array.php contributed by https://www.php.net/manual/en/function.in-array.php */
 function in_multiarray($elem, $array)
     {
         $top = sizeof($array) - 1;

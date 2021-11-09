@@ -1,3 +1,4 @@
 
 db.php
 *.bk
+.DS_Store
