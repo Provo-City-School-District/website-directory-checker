@@ -1,4 +1,21 @@
 <?php
+
+//Full path or relative path to the file that you want to delete
+$filePath = 'directory_report.txt';
+
+//Delete the file using PHP's unlink function
+$deleted = unlink($filePath);
+
+//If the file was deleted, unlink will return a TRUE value
+if($deleted){
+    echo 'File ' . $filePath . " was deleted!\n";
+}
+
+//Otherwise, unlink will return FALSE
+else{
+    echo 'Could not delete file!\n';
+}
+
 //include a file with database credentials
 include('db.php');
 //to use in_array in a multidimensional array
