@@ -77,7 +77,7 @@ foreach($posts_ID_directory_results as $person){
                 //echo $user_email." is not in the Vault as active.\n";
                 $insert_email_to_report = $user_email . " is not in the Vault as Active.\n";
                 //echo $insert_email_to_report;
-               //  echo $insert_email_to_report;
+                //echo $insert_email_to_report;
                 fwrite($bad_emails_report, $insert_email_to_report);
                 print "Data Written\n";
             }
