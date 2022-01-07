@@ -1,7 +1,7 @@
 <?php
 
 //Full path or relative path to the file that you want to delete
-$filePath = 'directory_report.txt';
+$filePath = dirname(__FILE__).'/directory_report.txt';
 
 //Delete the file using PHP's unlink function
 $deleted = unlink($filePath);
@@ -66,7 +66,7 @@ foreach($posts_ID_directory_results as $person){
 
     //check if emails from database are in the vault directory as active
     foreach ($site_directory_results as $user_email) {
-        $bad_emails_report = fopen("directory_report.txt", "a") or die("unable to open file!");
+        $bad_emails_report = fopen(dirname(__FILE__)."/directory_report.txt", "a") or die("unable to open file!");
         $user_email = strtolower($user_email[0]);
         $user_email = str_replace(' ', '', $user_email);
         if(in_multiarray($user_email,$active_users_results)) {
