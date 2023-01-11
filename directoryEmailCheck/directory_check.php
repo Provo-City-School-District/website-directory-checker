@@ -56,7 +56,7 @@ $site_db = mysqli_connect($siteLoc, $siteUser, $sitePass, $siteDB);
 $posts_ID_directory_sql = "SELECT ID FROM psd_posts WHERE post_status = 'publish' AND post_type = 'directory'";
 $posts_ID_directory_query = mysqli_query($site_db, $posts_ID_directory_sql);
 $posts_ID_directory_results = mysqli_fetch_all($posts_ID_directory_query);
-$email_to_ignore = array('camp@provo.edu', 'dixonattendance@provo.edu', 'thsattendance@provo.edu');
+$email_to_ignore = array('camp@provo.edu', 'dixonattendance@provo.edu', 'thsattendance@provo.edu','phsattendance@provo.edu');
 foreach($posts_ID_directory_results as $person){
 
     //pulls all emails from the directory for publish posts in the directory post type.
