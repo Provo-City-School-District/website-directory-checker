@@ -1,11 +1,14 @@
 # Active User Directory Checker
-*Modified 11/08/2021*
 
 Checks directory emails against another database to see that all emails are active.
 
-you'll need to include your database credentials in a database file. I named mine ```db.php```
+you'll need to include your database credentials in a environment file. ```.env```
 
 ## Database 1 Variables<br>
+VUSER=webserver
+VPASS=
+VLOC=158.91.5.51
+VDATA=nas
 $vUser = 1st database username<br>
 $vPass = 1st database password<br>
 $vLoc = 1st database location/ip address<br>
@@ -17,7 +20,7 @@ $sitePass = 2nd database password<br>
 $siteLoc = 2nd database location/ip address<br>
 $siteDB = 2nd database name<br>
 
-## PHP Requirements
-built and tested on 7.4
-
-requires fopen module
+SITEUSER=publicAdmin
+SITEPASS=
+SITELOC=158.91.1.123
+SITEDB=public
