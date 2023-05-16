@@ -1,7 +1,7 @@
 <?php
 
 //Full path or relative path to the file that you want to delete
-$filePath = dirname(__FILE__) . '/directory_report.txt';
+$filePath = '/app/result/directory_report.txt';
 
 //Delete the file using PHP's unlink function
 $deleted = unlink($filePath);
@@ -15,6 +15,7 @@ if ($deleted) {
 else {
     echo 'Could not delete file!\n';
 }
+
 
 //credentails for the vault
 $vUser = $_ENV['VUSER'];
@@ -77,7 +78,7 @@ foreach ($posts_ID_directory_results as $person) {
 
     //check if emails from database are in the vault directory as active
     foreach ($site_directory_results as $user_email) {
-        $bad_emails_report = fopen(dirname(__FILE__) . "/directory_report.txt", "a") or die("unable to open file!");
+        $bad_emails_report = fopen("/app/result/directory_report.txt", "a") or die("unable to open file!");
         $user_email = strtolower($user_email[0]);
         $user_email = str_replace(' ', '', $user_email);
         if (in_multiarray($user_email, $active_users_results)) {

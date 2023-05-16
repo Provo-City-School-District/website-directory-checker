@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 # Copy PHP script to the container
 COPY directory_check.php /app
-COPY directory_report.txt /app
+COPY result/ /app/result
 COPY .env /app/.env
 
 # COPY ckroot.crt /usr/local/share/ca-certificates/ckroot.crt
