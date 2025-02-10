@@ -1,5 +1,5 @@
 <?php
-echo "Starting directory check...\n";
+logger -t dir-check  "Starting directory check...\n";
 //credentails for the vault
 $vUser = $_ENV['VUSER'];
 $vPass = $_ENV['VPASS'];
@@ -79,12 +79,12 @@ foreach ($posts_ID_directory_results as $person) {
                 // Set the post status to "draft"
                 $update_post_status_sql = "UPDATE psd_posts SET post_status = 'draft' WHERE ID = '$post_id'";
                 mysqli_query($site_db, $update_post_status_sql);
-                echo "Post ID $post_id set to draft for email $user_email\n";
+                logger -t dir-check "Post ID $post_id set to draft for email $user_email\n";
             }
         }
     }
 }
-echo "Directory check complete.\n";
+logger -t dir-check "Directory check complete.\n";
 //close connections
 mysqli_close($vaultdb);
 mysqli_close($site_db);
