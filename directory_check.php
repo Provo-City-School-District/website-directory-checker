@@ -1,6 +1,7 @@
 <?php
-shell_exec('logger -t dir-check "Starting directory check..."');
-//credentails for the vault
+error_log("Starting directory check...");
+
+//credentials for the vault
 $vUser = $_ENV['VUSER'];
 $vPass = $_ENV['VPASS'];
 $vLoc = $_ENV['VLOC'];
@@ -36,7 +37,7 @@ function in_multiarray($elem, $array)
 $vaultdb = mysqli_connect($vLoc, $vUser, $vPass, $vdata, $vdport);
 //if connection fails
 if (!$vaultdb) {
-    die('Could not connect: ' . mysql_error());
+    die('Could not connect: ' . mysqli_error($vaultdb));
 }
 //pull active users from vault database
 $active_users_sql = "SELECT lower(email) FROM staff WHERE hr_status = 'A'";
@@ -47,7 +48,7 @@ $active_users_results = mysqli_fetch_all($active_user_query);
 $site_db = mysqli_connect($siteLoc, $siteUser, $sitePass, $siteDB, $sitePort);
 //if connection fails
 if (!$site_db) {
-    die('Could not connect: ' . mysql_error());
+    die('Could not connect: ' . mysqli_error($site_db));
 }
 //pulls all "publish" posts IDs from the directory post type.
 $posts_ID_directory_sql = "SELECT ID FROM psd_posts WHERE post_status = 'publish' AND post_type = 'directory'";
@@ -79,12 +80,12 @@ foreach ($posts_ID_directory_results as $person) {
                 // Set the post status to "draft"
                 $update_post_status_sql = "UPDATE psd_posts SET post_status = 'draft' WHERE ID = '$post_id'";
                 mysqli_query($site_db, $update_post_status_sql);
-                shell_exec('logger -t dir-check "User ' . $user_email . ' is not active. Setting post ID ' . $post_id . ' to draft."');
+                error_log("User $user_email is not active. Setting post ID $post_id to draft.");
             }
         }
     }
 }
-shell_exec('logger -t dir-check "Directory check complete."');
+error_log("Directory check complete.");
 //close connections
 mysqli_close($vaultdb);
 mysqli_close($site_db);
