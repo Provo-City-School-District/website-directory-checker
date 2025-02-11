@@ -1,5 +1,5 @@
 <?php
-logger -t dir-check  "Starting directory check...\n";
+logger -t dir-check "Starting directory check...";
 //credentails for the vault
 $vUser = $_ENV['VUSER'];
 $vPass = $_ENV['VPASS'];
@@ -84,7 +84,7 @@ foreach ($posts_ID_directory_results as $person) {
         }
     }
 }
-logger -t dir-check "Directory check complete.\n";
+logger -t dir-check "Directory check complete.";
 //close connections
 mysqli_close($vaultdb);
 mysqli_close($site_db);
